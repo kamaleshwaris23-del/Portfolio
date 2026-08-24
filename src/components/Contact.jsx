@@ -17,30 +17,53 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const name = formData.name.trim()
+    const email = formData.email.trim()
+    const subject = formData.subject.trim()
+    const msg = formData.message.trim()
+
+    // Form Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!formData.name.trim()) {
+
+    if (!name) {
       setErrorMessage('Please enter your name.')
       return
     }
-    if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      setErrorMessage('Please provide a valid email address.')
-      return
-    }
-    if (!formData.subject.trim()) {
-      setErrorMessage('Please enter a subject.')
-      return
-    }
-    if (!formData.message.trim() || formData.message.trim().length < 5) {
-      setErrorMessage('Please enter a message (at least 5 characters).')
+
+    if (!email) {
+      setErrorMessage('Please enter your email address.')
       return
     }
 
+    if (!emailRegex.test(email)) {
+      setErrorMessage('Please provide a valid email address.')
+      return
+    }
+
+    if (!msg) {
+      setErrorMessage('Please enter your message.')
+      return
+    }
+
+    // Clear any previous errors
     setErrorMessage('')
+
+    // Format WhatsApp message text containing Name, Email, Subject, and Message
+    const message = `Name: ${name}\nEmail: ${email}\nSubject: ${subject || 'General Inquiry'}\nMessage: ${msg}`
+
+    // Construct WhatsApp URL with safe URI encoding
+    const whatsappUrl = `https://wa.me/919361396259?text=${encodeURIComponent(message)}`
+
+    // Open WhatsApp in a new tab / window with security attributes
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+
+    // Provide friendly confirmation state
     setIsSubmitted(true)
     setTimeout(() => {
       setFormData({ name: '', email: '', subject: '', message: '' })
       setIsSubmitted(false)
-    }, 5000)
+    }, 6000)
   }
 
   return (
@@ -122,7 +145,7 @@ export default function Contact() {
 
               {/* Response Time Guarantee */}
               <div className="mt-6 pt-5 border-t border-slate-800/80 text-xs text-slate-400 flex items-center justify-between">
-                <span>⚡ Quick Response Time</span>
+                <span>⚡ Direct WhatsApp Messaging</span>
                 <span className="text-cyan-400 font-mono">Available</span>
               </div>
             </div>
@@ -138,9 +161,9 @@ export default function Contact() {
                   <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mx-auto flex items-center justify-center text-2xl">
                     ✓
                   </div>
-                  <h4 className="text-xl font-bold text-white">Thank You for Connecting!</h4>
+                  <h4 className="text-xl font-bold text-white">Opening WhatsApp...</h4>
                   <p className="text-sm text-slate-300 max-w-md mx-auto">
-                    Your message has been received. I will review it and get back to you shortly.
+                    Your message has been pre-filled! Click &ldquo;Send&rdquo; inside WhatsApp to start our conversation directly.
                   </p>
                   <div className="pt-2">
                     <button
@@ -174,7 +197,6 @@ export default function Contact() {
                         type="text"
                         id="contact-name"
                         name="name"
-                        required
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your Name"
@@ -191,7 +213,6 @@ export default function Contact() {
                         type="email"
                         id="contact-email"
                         name="email"
-                        required
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="your.email@example.com"
@@ -203,13 +224,12 @@ export default function Contact() {
                   {/* Subject */}
                   <div>
                     <label htmlFor="contact-subject" className="block text-xs font-mono font-medium text-slate-300 mb-2">
-                      Subject <span className="text-cyan-400">*</span>
+                      Subject <span className="text-slate-500 font-normal">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       id="contact-subject"
                       name="subject"
-                      required
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Project Inquiry / Collaboration"
@@ -226,7 +246,6 @@ export default function Contact() {
                       id="contact-message"
                       name="message"
                       rows={4}
-                      required
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your project, idea, or inquiry..."
@@ -239,7 +258,7 @@ export default function Contact() {
                     type="submit"
                     className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 via-purple-600 to-indigo-600 hover:from-cyan-400 hover:to-purple-500 text-white font-semibold text-sm shadow-[0_4px_25px_rgba(6,182,212,0.35)] transition-all duration-300 cursor-pointer active:scale-[0.99] flex items-center justify-center gap-2"
                   >
-                    <span>Send Message</span>
+                    <span>Send via WhatsApp</span>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -256,3 +275,4 @@ export default function Contact() {
     </section>
   )
 }
+
