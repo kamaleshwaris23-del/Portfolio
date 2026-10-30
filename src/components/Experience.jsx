@@ -59,6 +59,53 @@ const SELECTED_PROJECTS = [
   },
 ]
 
+const DOOR2LIFE_PROJECT = {
+  name: 'Door2Life – Customer Data Management Application',
+  type: 'Full-Stack Web Application Development & Software Testing',
+  description:
+    'Developed a customer data management web application designed to simplify customer information collection, organization, tracking, and management.',
+  roles: [
+    'Frontend Development',
+    'Application Testing',
+    'Functional Testing',
+    'Manual QA',
+    'Bug Identification',
+    'Validation Testing',
+  ],
+  customerManagement: [
+    'Developed customer registration and data collection forms.',
+    'Implemented customer information management, including adding, editing, viewing, searching, and deleting records.',
+    'Organized customer details for efficient data management.',
+  ],
+  applicationDevelopment: [
+    'Worked with React.js, TypeScript, Vite, and modern frontend technologies.',
+    'Implemented reusable components and structured application navigation.',
+    'Developed customer management modules and dashboard interfaces.',
+    'Worked on data persistence and JSON export functionality.',
+  ],
+  testingQA: [
+    'Performed functional testing of customer registration and management workflows.',
+    'Tested Add, Edit, View, Search, and Delete operations.',
+    'Verified data persistence after page refresh.',
+    'Tested form validation, mobile number validation, and duplicate customer detection.',
+    'Performed negative testing, including invalid IDs and missing customer records.',
+    'Tested JSON data export functionality.',
+    'Identified issues, verified fixes, and performed regression testing.',
+    'Executed TypeScript build checks and application quality checks.',
+  ],
+  technologies: [
+    'React.js',
+    'TypeScript',
+    'Vite',
+    'JavaScript',
+    'HTML',
+    'CSS',
+    'Git',
+    'GitHub',
+    'Supabase (backend integration, where implemented)',
+  ],
+}
+
 export default function Experience() {
   return (
     <section id="experience" className="relative py-24 sm:py-32 overflow-hidden bg-radial-glow scroll-mt-20">
@@ -175,6 +222,199 @@ export default function Experience() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Featured Project Entry: Door2Life – Customer Data Management Application */}
+        <div className="mt-12 sm:mt-16 max-w-5xl mx-auto">
+          <div className="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-800 relative glass-card-accent shadow-2xl hover:border-cyan-500/40 transition-all duration-300">
+            {/* Subtle Card Glow Backdrop */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-600/5 to-transparent rounded-3xl pointer-events-none -z-10" />
+
+            {/* Header / Project Identity */}
+            <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 pb-6 border-b border-slate-800">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400">
+                    Application & QA Project
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                  Door2Life <span className="text-gradient-cyan-blue">– Customer Data Management Application</span>
+                </h3>
+                <p className="text-xs sm:text-sm font-mono text-purple-300 mt-1.5">
+                  {DOOR2LIFE_PROJECT.type}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                  Development
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-purple-500/10 border border-purple-500/30 text-purple-300">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Software Testing
+                </span>
+              </div>
+            </div>
+
+            {/* My Role */}
+            <div className="py-5 border-b border-slate-800">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 shrink-0">
+                  My Role:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {DOOR2LIFE_PROJECT.roles.map((role) => (
+                    <span
+                      key={role}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-900/90 border border-slate-700/70 text-slate-200 hover:border-cyan-400/40 transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                      {role}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Project Overview */}
+            <div className="pt-6">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                Project Overview
+              </h4>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed bg-slate-900/40 p-4 sm:p-5 rounded-2xl border border-slate-800/80">
+                {DOOR2LIFE_PROJECT.description}
+              </p>
+            </div>
+
+            {/* Key Features & Testing Responsibilities (2-Column Grid) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+              
+              {/* Development Column: Key Features & Responsibilities */}
+              <div className="rounded-2xl bg-slate-900/50 border border-slate-800/80 p-5 sm:p-6 flex flex-col justify-between hover:border-cyan-500/30 transition-all">
+                <div>
+                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-inner">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                      </div>
+                      <h5 className="text-base font-bold text-white">
+                        Key Features & Development
+                      </h5>
+                    </div>
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
+                      Frontend & Build
+                    </span>
+                  </div>
+
+                  <div className="space-y-5">
+                    {/* Customer Management */}
+                    <div>
+                      <h6 className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider mb-2.5 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                        1. Customer Management
+                      </h6>
+                      <ul className="space-y-2">
+                        {DOOR2LIFE_PROJECT.customerManagement.map((point) => (
+                          <li key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <svg className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Application Development */}
+                    <div className="pt-4 border-t border-slate-800/60">
+                      <h6 className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider mb-2.5 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                        2. Application Development
+                      </h6>
+                      <ul className="space-y-2">
+                        {DOOR2LIFE_PROJECT.applicationDevelopment.map((point) => (
+                          <li key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <svg className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testing Column: Software Testing & Quality Assurance */}
+              <div className="rounded-2xl bg-slate-900/50 border border-slate-800/80 p-5 sm:p-6 flex flex-col justify-between hover:border-purple-500/30 transition-all">
+                <div>
+                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 shadow-inner">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <h5 className="text-base font-bold text-white">
+                        Testing Responsibilities & QA
+                      </h5>
+                    </div>
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300">
+                      QA & Validation
+                    </span>
+                  </div>
+
+                  <div>
+                    <h6 className="text-xs font-mono font-bold text-purple-300 uppercase tracking-wider mb-2.5 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                      3. Software Testing & Quality Assurance
+                    </h6>
+                    <ul className="space-y-2">
+                      {DOOR2LIFE_PROJECT.testingQA.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          <svg className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Technologies Used */}
+            <div className="mt-8 pt-6 border-t border-slate-800">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                Technologies Used
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {DOOR2LIFE_PROJECT.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-900/90 text-cyan-300 border border-slate-700/80 hover:border-cyan-400/50 hover:bg-slate-800/80 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 
